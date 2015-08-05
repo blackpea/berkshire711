@@ -1,0 +1,145 @@
+﻿
+<div id="sidebar-wrapper" class="col-sm-2">
+    <div id="sidebar" sidebar="">
+        <!--sidebar contents -->
+        <!--toggle arrow-->
+        <ul class="nav">
+            <li>
+                <a href="http://bootbundle.herokuapp.com/#" data-target="#sidebar-wrapper" class="sidebar-toggle visible-xs text-right"><i class="menu-icon glyphicon glyphicon-chevron-right"></i></a>
+            </li>
+        </ul>
+
+        <!--large screen nav (menu-items)-->
+        <ul menu-items="" class="nav hidden-xs" id="menuLg">
+            <li data-ng-class="{active: isActive(&#39;/&#39;)}" class="active">
+                <a href="./herokuapp_files/herokuapp.htm" ng-init="collapseDashboard=true" ng-click="collapseDashboard=!collapseDashboard"><i class="fa fa-tachometer menu-icon"></i> <span class="hidden-xs">Dashboard</span> <i class="fa fa-caret-down"></i></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs" ng-class="{in: !collapseDashboard}" id="dashboardMenu">
+                    <li data-ng-class="{active: isActive(&#39;/dashboard-1&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/dashboard-1">Dashboard Alt</a></li>
+                </ul>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/elements&#39;)}" class="">
+                <a href="http://bootbundle.herokuapp.com/elements" ng-init="collapseUi=true" ng-click="collapseUi=!collapseUi"><span class="fa fa-briefcase menu-icon"></span> <span class="hidden-xs">UI Kit</span>  <i class="fa fa-caret-down"></i></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs in" ng-class="{in: !collapseUi}" id="uiMenu">
+                    <li data-ng-class="{active: isActive(&#39;/elements-2&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/elements-2">Bootstrap Elements</a></li>
+                    <li data-ng-class="{active: isActive(&#39;/layout-grid&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/layout-grid">Responsive Grid</a></li>
+                </ul>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/charts&#39;)}" class="">
+                <a href="http://bootbundle.herokuapp.com/charts" ng-init="collapseCharts=true" ng-click="collapseCharts=!collapseCharts"><span class="fa fa-bar-chart-o menu-icon"></span> <span class="hidden-xs">Charts</span> <i class="fa fa-caret-down"></i></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs" ng-class="{in: !collapseCharts}" id="chartsMenu">
+                    <li data-ng-class="{active: isActive(&#39;/charts-flot&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/charts-flot">Flot Charts</a></li>
+                    <li data-ng-class="{active: isActive(&#39;/charts-morris&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/charts-morris">Morris Charts</a></li>
+                </ul>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/forms&#39;)}" class="">
+                <a href="javascript:;" ng-init="collapseForms=true" ng-click="collapseForms=!collapseForms"><span class="fa fa-check-square-o menu-icon"></span> <span class="hidden-xs">Forms</span>  <i class="fa fa-caret-down"></i></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs in" ng-class="{in: !collapseForms}" id="formsMenu">
+                    <li data-ng-class="{active: isActive(&#39;/forms&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/forms">Forms &amp; Inputs</a></li>
+                    <li data-ng-class="{active: isActive(&#39;/forms-advanced&#39;)}" class=""><a href="http://bootbundle.herokuapp.com/forms-advanced">Form Plugins</a></li>
+                </ul>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/widgets&#39;)}">
+                <a href="http://bootbundle.herokuapp.com/widgets"><span class="fa fa-cube menu-icon"></span> <span class="hidden-xs">Widgets</span></a>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/inbox&#39;)}">
+                <a href="http://bootbundle.herokuapp.com/inbox"><span class="fa fa-envelope menu-icon"></span> <span class="hidden-xs">Inbox</span></a>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/maps&#39;)}">
+                <a href="http://bootbundle.herokuapp.com/maps" ng-init="collapseMaps=true" ng-click="collapseMaps=!collapseMaps"><span class="fa fa-map-marker fa-lg menu-icon"></span> <span class="hidden-xs">Maps</span></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs" ng-class="{in: !collapseMaps}" id="mapsMenu">
+                    <li><a href="http://bootbundle.herokuapp.com/maps-vector">Vector Map</a></li>
+                </ul>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/calendar&#39;)}">
+                <a href="http://bootbundle.herokuapp.com/calendar"><span class="fa fa-calendar-o menu-icon"></span> <span class="hidden-xs">Calendar</span></a>
+            </li>
+            <li data-ng-class="{active: isActive(&#39;/fonts&#39;)}">
+                <a href="http://bootbundle.herokuapp.com/fonts" ng-init="collapseFonts=true" ng-click="collapseFonts=!collapseFonts"><span class="fa fa-eye menu-icon"></span> <span class="hidden-xs">Icon Fonts</span>  <i class="fa fa-caret-down"></i></a>
+            </li>
+            <ul class="nav nav-sub pull-down collapse hidden-xs" ng-class="{in: !collapseFonts}" id="fontsMenu">
+                <li data-ng-class="{active: isActive(&#39;/fonts&#39;)}"><a href="http://bootbundle.herokuapp.com/fonts">Glyphicons</a></li>
+                <li data-ng-class="{active: isActive(&#39;/fonts-fa&#39;)}"><a href="http://bootbundle.herokuapp.com/fonts-fa">FontAwesome</a></li>
+            </ul>
+            <li>
+                <a href="javascript:;" ng-init="collapsePages=true" ng-click="collapsePages=!collapsePages"><span class="fa fa-file-text-o menu-icon"></span> <span class="hidden-xs">Pages</span>  <i class="fa fa-caret-down"></i></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs in" ng-class="{in: !collapsePages}" id="pagesMenu">
+                    <li data-ng-class="{active: isActive(&#39;/blank&#39;)}"><a href="http://bootbundle.herokuapp.com/blank">Blank</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/contact">Contact</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/faq">FAQ</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/resources">Results</a></li>
+                    <li>
+                        <a href="javascript:;" ng-init="collapseLayouts=true" ng-click="collapseLayouts=!collapseLayouts">Layouts <i class="fa fa-caret-down"></i></a>
+                        <ul class="nav nav-sub pull-down collapse" ng-class="{in: !collapseLayouts}" id="layoutsMenu">
+                            <li><a href="http://bootbundle.herokuapp.com/layout-grid">Responsive Grid</a></li>
+                            <li><a href="http://bootbundle.herokuapp.com/layout-image-grid">Images &amp; Text</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://bootbundle.herokuapp.com/error-404">Error - 404</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/error-500">Error - 500</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/login">Login</a></li>
+                    <li><a href="" data-toggle="modal" data-target="#modalLogout">Logout</a></li>
+                    <li><a href="http://bootbundle.herokuapp.com/signup">Register</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" ng-init="collapseBonus=true" ng-click="collapseBonus=!collapseBonus" class="text-success"><span class="fa fa-star-o fa-lg menu-icon"></span> <span class="hidden-xs">Bonus</span></a>
+                <ul class="nav nav-sub pull-down collapse hidden-xs in" ng-class="{in: !collapseBonus}" id="bonusMenu">
+                    <li data-ng-class="{active: isActive(&#39;/users&#39;)}" class="">
+                        <a href="http://bootbundle.herokuapp.com/users"><span class="fa fa-user menu-icon"></span> Users <span title="Users count" class="badge pull-right ng-binding">13</span></a>
+                    </li>
+                    <li data-ng-class="{active: isActive(&#39;/todo&#39;)}" class="">
+                        <a href="http://bootbundle.herokuapp.com/todo"><span class="fa fa-tasks menu-icon"></span> Tasks</a>
+                    </li>
+                    <li data-ng-class="{active: isActive(&#39;/dropzone&#39;)}" class="">
+                        <a href="http://bootbundle.herokuapp.com/dropzone"><span class="fa fa-upload menu-icon"></span> Dropzone</a>
+                    </li>
+                    <li data-ng-class="{active: isActive(&#39;/social&#39;)}" class="">
+                        <a href="http://bootbundle.herokuapp.com/social"><span class="fa fa-twitter menu-icon"></span> Social Pack</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!--tiny screen nav (menu-items-sm)-->
+        <ul menu-items-sm="" class="nav visible-xs" id="menuSm">
+            <li>
+                <a href="./herokuapp_files/herokuapp.htm"><i class="fa fa-tachometer menu-icon"></i> <span class="">Dashboard</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/elements"><i class="fa fa-briefcase menu-icon"></i> <span class="">UI Kit</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/charts"><i class="fa fa-bar-chart-o menu-icon"></i> <span class="">Charts</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/forms"><i class="fa fa-check-square-o menu-icon"></i> <span class="">Forms</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/widgets"><i class="fa fa-cube menu-icon"></i> <span class="">Widgets</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/inbox"><i class="fa fa-envelope menu-icon"></i> <span class="">Inbox</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/maps"><i class="fa fa-map-marker fa-lg menu-icon"></i> <span class="">Maps</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/calendar"><i class="fa fa-calendar menu-icon"></i> <span class="">Calendar</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/fonts"><i class="fa fa-eye menu-icon"></i> <span class="">Icons</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/users"><i class="fa fa-user menu-icon"></i> <span class="">Users</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/todo"><i class="fa fa-tasks menu-icon"></i> <span class="">Tasks</span></a>
+            </li>
+            <li>
+                <a href="http://bootbundle.herokuapp.com/gallery"><i class="fa fa-camera menu-icon"></i> <span class="">Gallery</span></a>
+            </li>
+        </ul>
+
+        <!--/sidebar contents-->
+    </div>
+</div>

@@ -1,0 +1,126 @@
+﻿@using DocumentFormat.OpenXml.Wordprocessing
+@using iTextSharp.text.pdf.qrcode
+@model html5up_dopetrope_mvc.Models.TB_Room
+
+@{
+    ViewBag.Title = "房型資料-編輯";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main-wrapper">
+    <div class="container">
+
+        @using (Html.BeginForm("Edit", "TB_Room", FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@ViewBag.Title</h3>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SquareFootage, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SquareFootage, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SquareFootage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaxCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MaxCapacity, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaxCapacity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Facility, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Facility, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Facility, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Features, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Features, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Features, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Color, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">  圖片</label>
+                    <div class="col-md-10">
+                        @{
+            var targetDirectory = Server.MapPath(@"~/UploadFiles/TB_Room/" + Model.ID + "/");
+            var images = Html.GetImgTagsByRoomId(@"~/UploadFiles/TB_Room/" + Model.ID + "/", targetDirectory);
+            foreach (var imgTag in images)
+            {
+                <a href="@Url.Action("DeleteUploadFile", "TB_Room", new { area = "Admin", id = Model.ID, imagePath = imgTag._imagePath })" onclick = "return confirm('你確定要刪除此檔案?');">
+                @imgTag.WithDensities(2, 3).WithSize(100, 100)
+                </a>
+            }
+                        }
+                        @Html.TextBox("files", Model.ImgUrl1, new { @class = "form-control", @multiple = "multiple", @type = "file", @name = "files", @accept = "image/*" })
+                        @Html.ValidationMessageFor(model => model.ImgUrl1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ExtraBed, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ExtraBed, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ExtraBed, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="送出" class="btn btn-default" />
+                        <div class="btn btn-default">
+                            @Html.ActionLink("回上一頁", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+    </div>
+</div>
+@section Style
+{
+    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script>
+    </script>
+}

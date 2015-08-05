@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "線上訂房";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="12u">
+                <!-- Blog -->
+                <section>
+                    <header class="major">
+                        <h2>@ViewBag.Title</h2>
+                    </header>
+                    <div>
+                        <div class="row">
+                            <div class="12u">
+                                <section class="box">
+                                    <header>
+                                        <h3>訂房須知</h3>
+                                        @*<span class="byline">Posted 45 minutes ago</span>*@
+                                    </header>
+                                    @*<p>
+                                        １、波克夏民宿「銀行匯款資訊」如下：
+                                        銀行名稱：郵局七美分局
+                                        銀行代碼：700
+                                        帳戶名稱：夏陳秀梅
+                                        銀行帳號：0241-041-004-2331
+                                    </p>*@
+                                    <pre>
+１、波克夏民宿「銀行匯款資訊」如下：<b>
+　　銀行名稱：郵局七美分局
+　　銀行代碼：700
+　　帳戶名稱：夏陳秀梅
+　　銀行帳號：0241-041-004-2331</b>
+
+２、訂房作業請一律於民宿官方網站線上訂房。訂房完成，請於三日內繳付房價５０％，方可保留客房。若三日內未完成匯款，房間將重新開放預訂。
+
+３、匯款後請務必回傳簡訊確認【電話0910667685(中華)】，簡訊內容請告知：
+    (1)入住日期
+    (2)預定房型
+    (3)帳號後五碼(ATM轉帳)、匯款人姓名(臨櫃匯款)、郵局局號(無褶存款)
+    ※我們會於收到匯款簡訊後，24小時內確認並回傳確認簡訊。
+    ※我們於收到訂金後，將為您保留房間，餘款到付。
+
+４、訂房成功後，訂房者如需異動內容，請以電話方式異動訂單。非客服時間之申辦異動，皆為次日計算及辦理。
+　　※電話詢問時間：早上10點～晚上21點　(其餘時間歡迎利用FB留言版留言，我們會儘快為您回覆)。
+
+５、本民宿提供加床服務(為折疊床墊)，每加一床酌收NTD500<b><font color="red">(現場收費)</font></b>；小學以下孩童免加床費。
+
+６、本民宿Check in時間為每日下午15:00，Check out時間為每日上午11:00。
+
+７、本民宿公佈之價格，隨季節及人文活動而異動，並以官網之「查詢空房與房價」之當日價格為標準。
+
+８、本民宿淡、旺季節及平、假日之說明：<b><font color="red">
+　　旺季是３月１６日～１０月１５日；淡季是１０月１６日～３月１５日
+　　平日是指週日～週四，假日是指週五、週六（連續假日、特殊節日皆算假日）</font></b>
+
+９、依菸害防制法規定，<b><font color="red">本民宿全館禁煙</font></b>，且於房間內設有煙霧偵側器，若有房客違反規定，一間房需加收一千元。
+
+１０、<b><font color="red">禁止攜帶寵物</font></b>，若自行攜帶寵物者，將可拒絕房客入住，訂金將不退還。
+
+１１、超過人數：住宿時人數若超過房間型態，至現場則加收水電清潔費。
+
+１２、請勿吸毒、酗酒、烹煮、賭博、辦派對、嚼檳榔及破壞房內設備、整潔之活動。一經發現將報警處理，並須立即搬出並且不退房租。
+
+１３、住房當日遇颱風、地震等不可抗拒因素時（以氣象局發布或民宿所在地縣市政府頒布狀況「停止上班上課」為判定準則），以致無法順利住房，訂房者可依本民宿規定變更住房日期或退費處理之。待民宿確認無誤後，可辦理「保留住宿權益」或酌收銀行手續費NT$100為作業手續費用，餘款退還。
+
+１３、若因遇颱風，交通受阻，導致旅客無法離開，滯留期間，住宿費以5折算。
+
+１４、貴重的物品請千萬小心保管，因若有遺失的情況發生，是不予理賠的。
+
+１５、旅遊期間如須承租汽車或機車，請記得攜帶駕照。
+</pre>
+                                    <footer class="actions">
+                                        @*<a href="#" class="button fa fa-file-text">Continue Reading</a>*@
+                                        <a href="@Url.Action("Reservation", "Rooms", new { })" class="button alt fa fa-comment">前往訂房</a>
+                                    </footer>
+                                </section>
+                            </div>
+                            @*<div class="6u">
+                                <section class="box">
+                                    <a href="#" class="image image-full">
+                                        
+                                    </a>
+                                    <header>
+                                        <h3>Aptent veroeros et aliquam</h3>
+                                        <span class="byline">Posted 45 minutes ago</span>
+                                    </header>
+                                    <p>Lorem ipsum dolor sit amet sit veroeros sed et blandit consequat sed veroeros lorem et blandit  adipiscing feugiat phasellus tempus hendrerit, tortor vitae mattis tempor, sapien sem feugiat sapien, id suscipit magna felis nec elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos lorem ipsum dolor sit amet.</p>
+                                    <footer class="actions">
+                                        <a href="#" class="button fa fa-file-text">Continue Reading</a>
+                                        <a href="#" class="button alt fa fa-comment">33 comments</a>
+                                    </footer>
+                                </section>
+                            </div>*@
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="12u">
+
+                <!-- Intro -->
+                @*<section id="intro">
+
+                    <div>
+                        <div class="row">
+                            <div class="4u">
+                                <section class="first">
+                                    <span class="pennant"><span class="fa fa-cog"></span></span>
+                                    <header>
+                                        <h2>Ipsum consequat</h2>
+                                    </header>
+                                    <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                </section>
+                            </div>
+                            <div class="4u">
+                                <section class="middle">
+                                    <span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
+                                    <header>
+                                        <h2>Magna etiam dolor</h2>
+                                    </header>
+                                    <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                </section>
+                            </div>
+                            <div class="4u">
+                                <section class="last">
+                                    <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
+                                    <header>
+                                        <h2>Tempus adipiscing</h2>
+                                    </header>
+                                    <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="#" class="button big">Get Started</a>
+                        <a href="#" class="button alt big">Learn More</a>
+                    </div>
+
+                </section>
+                *@
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

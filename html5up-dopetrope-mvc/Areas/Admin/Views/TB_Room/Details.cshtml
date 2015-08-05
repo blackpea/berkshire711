@@ -1,0 +1,115 @@
+﻿@model html5up_dopetrope_mvc.Models.TB_Room
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SquareFootage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SquareFootage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Features)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Features)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtraBed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraBed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

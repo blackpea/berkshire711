@@ -1,0 +1,113 @@
+﻿@using html5up_dopetrope_mvc
+
+@{
+    ViewBag.Title = "住宿須知";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="12u">
+                <!-- Blog -->
+                <section>
+                    <header class="major">
+                        <h2>@ViewBag.Title</h2>
+                    </header>
+                    <div>
+                        <div class="row">
+                            <div class="6u">
+                                <section class="box">
+                                    @*<a href="#" class="image image-full">
+
+                                        </a>*@
+                                    <header>
+                                        <h3>住房須知</h3>
+                                        @*<span class="byline">Posted 45 minutes ago</span>*@
+                                    </header>
+                                    <pre>
+１、本民宿所公布的房價，皆包含環島機車一部，美味早餐。
+２、Check-in時間為下午15:00後；Check-out時間為上午11:00前。逾時退房，將每小時加收500元。訂房者與民宿之其他交易（如續住、加床、餐費…等）所發生之費用，必須與民宿現場結清方可退房。
+３、本民宿免費提供多部自行車、烤肉用具組，給房客使用。
+４、本民宿提供天然草本成份沐浴乳/洗髮精。為響應澎湖低碳島政策，不再提供一次性丟棄備品（如牙膏╱牙刷╱浴帽╱梳子╱刮鬍刀╱紙杯等）。
+５、外出時請將房門鎖上，貴重物品請自行小心保管。退房時，請務必繳回房門的鑰匙。
+６、為了您及其他房客的安全，請勿在房間內或民宿公共區域等處，烹煮任何食物。
+７、清晨08:00前及晚間23:00後，請勿高聲談話喧嘩，避免擾鄰。同時為維持住宿品質，若喧鬧不止，屢勸無效，本民宿可要求房客立即退房，恕不退還房費。
+８、本民宿所屬物品，例，衣架、毛巾、浴巾、牙刷架、拖鞋、吹風機、杯子、托盤、電熱壺、植栽、裝飾佈置用品等等，請勿帶離。
+９、為維護住宿品質，請勿在民宿內抽煙及嚼檳榔（含樓梯間、電梯與房間）。
+１０、請珍惜地球資源節約用水，並愛護一切用品及設備，如有損壞，請依市價賠償。
+１１、因考量部分房客可能會對寵物過敏，請勿攜帶寵物入住，若自行攜帶寵物入住者，將拒絕住宿，恕不退還訂金。
+１２、退房時，請將所有行李清點清楚，以免遺落。
+１３、住房當日遇颱風、地震等不可抗拒因素時（以氣象局發布或民宿所在地縣市政府頒布狀況「停止上班上課」為判定準則），以致無法順利住房，訂房者可依本民宿規定變更住房日期或退費處理之。待民宿確認無誤後，可辦理「保留住宿權益」或酌收銀行手續費NT$100為作業手續費用，餘款退予訂房者。
+１４、若因遇颱風，交通受阻，導致旅客無法離開，滯留期間，住宿費以5折計算。
+１５、貴重的物品請千萬小心保管，因若有遺失的情況發生，是不予理賠的。
+１６、旅遊期間如須承租汽車或機車，請記得攜帶駕照。
+</pre>
+
+                                </section>
+                            </div>
+                            <div class="6u">
+                                <section class="box">
+
+                                    <div>
+                                        <header>
+                                            <h3>公共空間照片</h3>
+                                            @*<span class="byline">Posted 45 minutes ago</span>*@
+                                        </header>
+                                        @{
+                                            var targetDirectory = Server.MapPath(@"~/UploadFiles/TB_Room/7/");
+                                            var images = Html.GetImgTagsByRoomId(@"~/UploadFiles/TB_Room/7/", targetDirectory);
+                                            <ul class="rslides">
+                                                @foreach (var img in images)
+                                                {
+                                                    <li class="">
+                                                        @img
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section Style
+{
+    <link href="http://responsiveslides.com/responsiveslides.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script src="http://responsiveslides.com/responsiveslides.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $(".rslides").responsiveSlides(
+            {
+                auto: true,             // Boolean: Animate automatically, true or false
+                speed: 500,            // Integer: Speed of the transition, in milliseconds
+                timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+                pager: false,           // Boolean: Show pager, true or false
+                nav: false,             // Boolean: Show navigation, true or false
+                random: false,          // Boolean: Randomize the order of the slides, true or false
+                pause: false,           // Boolean: Pause on hover, true or false
+                pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+                prevText: "Previous",   // String: Text for the "previous" button
+                nextText: "Next",       // String: Text for the "next" button
+                maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+                navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+                manualControls: "",     // Selector: Declare custom pager navigation
+                namespace: "rslides",   // String: Change the default namespace used
+                before: function () { },   // Function: Before callback
+                after: function () { }     // Function: After callback
+            });
+        });
+    </script>
+}

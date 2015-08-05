@@ -1,0 +1,75 @@
+﻿@model html5up_dopetrope_mvc.Models.TB_RoomCharge
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_RoomCharge</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowSeasonHoliday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowSeasonHoliday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowSeasonWeekday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowSeasonWeekday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighSeasonHoliday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighSeasonHoliday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HighSeasonWeekday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HighSeasonWeekday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TB_Room.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TB_Room.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

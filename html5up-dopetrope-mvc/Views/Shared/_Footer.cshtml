@@ -1,0 +1,115 @@
+﻿@using System.Globalization
+@using html5up_dopetrope_mvc
+<!-- Footer Wrapper -->
+<div id="footer-wrapper">
+    <!-- Footer -->
+    <section id="footer" class="container">
+        <div class="row">
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>最新消息</h2>
+                    </header>
+                    <ul class="dates">
+                        @foreach (var news in Html.GetNewsItemsOrderByDesc(3))
+                        {
+                            <li>
+                                <span class="date">@news.PostDateTime.ToString("MM", new CultureInfo("en-US"))<strong>@news.PostDateTime.ToString("dd", new CultureInfo("en-US"))</strong></span>
+                                <h3><a href="#">@news.Title</a></h3>
+                                <pre>@news.Description</pre>
+                            </li>
+
+                        }
+                    </ul>
+
+                    @*<ul class="contact">
+                        <li>
+                            <h3>銀行名稱</h3>
+                            <p>
+                                澎湖縣農會-七美分部
+                            </p>
+                        </li>
+                        <li>
+                            <h3>銀行代碼</h3>
+                            <p>624</p>
+                        </li>
+                        <li>
+                            <h3>帳戶名稱</h3>
+                            <p>陳秀梅</p>
+                        </li>
+                        <li>
+                            <h3>銀行帳號</h3>
+                            <p>00068220184810</p>
+                        </li>
+                    </ul>*@
+
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>我們的Facebook</h2>
+                    </header>
+                    <div class="fb-like-box" 
+                         data-href="https://www.facebook.com/pages/%E6%B3%A2%E5%85%8B%E5%A4%8F%E6%B0%91%E5%AE%BF/1450676308507978?sk=timeline" 
+                         data-colorscheme="light" 
+                         data-show-faces="true" 
+                         data-header="true" 
+                         data-stream="false" 
+                         data-show-border="true"></div>
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>聯絡資訊</h2>
+                    </header>
+                    @*<ul class="social">
+                            <li><a class="fa fa-facebook solo" href="#"><span>Facebook</span></a></li>
+                            <li><a class="fa fa-twitter solo" href="http://twitter.com/n33co"><span>Twitter</span></a></li>
+                            <li><a class="fa fa-dribbble solo" href="http://dribbble.com/n33"><span>Dribbble</span></a></li>
+                            <li><a class="fa fa-linkedin solo" href="#"><span>LinkedIn</span></a></li>
+                            <li><a class="fa fa-google-plus solo" href="#"><span>Google+</span></a></li>
+                        </ul>*@
+                    <ul class="contact">
+                        <li>
+                            <h3>地址</h3>
+                            <p>
+                                88341<br />
+                                澎湖縣七美鄉南港村11鄰51號<br />
+                            </p>
+                        </li>
+                        <li>
+                            <h3>E-mail</h3>
+                            <p><a href="mailto:berkshire711@gmail.com">berkshire711@gmail.com</a></p>
+                        </li>
+                        <li>
+                            <h3>電話</h3>
+                            <p><a href="tel:0910-667685">0910-667685</a></p>
+                            <p><a href="tel:0963-559508">0963-559508</a></p>
+                            <p><a href="tel:06-9971297">06-9971297</a></p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="12u" style="margin-top:-3em;">
+                <!-- Copyright -->
+                <div id="copyright">
+                    COPYRIGHT © @Html.ActionLink("波克夏民宿", "Login", "Account", null, null)　版權所有　地址：88341 澎湖縣七美鄉南港村11鄰51號　電話：<a href="tel:0910-667685">0910-667685</a>　MAIL：<a href="mailto:berkshire711@gmail.com">berkshire711@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

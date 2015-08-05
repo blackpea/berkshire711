@@ -1,0 +1,110 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<html5up_dopetrope_mvc.Models.TB_RoomCharge>
+
+@{
+    ViewBag.Title = "房型金額資料維護";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main-wrapper">
+    <div class="container">
+        
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@ViewBag.Title</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().TB_Room.Name)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().CreateDateTime)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().LowSeasonHoliday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().LowSeasonWeekday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().HighSeasonHoliday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().HighSeasonWeekday)
+                            </th>
+                     
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().ExtraBedCharge)
+                            </th>
+
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                          @Html.DisplayFor(modelItem => item.TB_Room.Name)
+                                      </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDateTime)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LowSeasonHoliday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LowSeasonWeekday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HighSeasonHoliday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HighSeasonWeekday)
+                                </td>
+                           
+
+                                <th>
+                                    @Html.DisplayFor(model => item.ExtraBedCharge)
+                                </th>
+
+                                <td>
+                                    @Html.ActionLink("編輯", "Edit", new { id = item.ID })
+                                    @*@Html.ActionLink("檢視", "Details", new { id = item.ID }) |*@
+                                    @*@Html.ActionLink("刪除", "Delete", new { id = item.ID })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <form action="@Url.Action("Create", "TB_RoomCharge", new { @class = "", area = "Admin" })" method="GET">
+                            <button type="submit" class="btn btn-default">新增</button>
+                        </form>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="panel-footer">
+                @Html.PagedListPager(Model, page => Url.Action("Index", "TB_RoomCharge", new { page = page, area = "Admin" }))
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Style
+{
+    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script>
+    </script>
+}

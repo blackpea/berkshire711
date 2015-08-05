@@ -1,0 +1,333 @@
+﻿
+@model html5up_dopetrope_mvc.ViewModels.RoomBookingOrderViewModel
+@{
+    ViewBag.Title = "線上訂房-填寫訂房資料";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="12u">
+                <!-- Blog -->
+                <section>
+                    <header class="major">
+                        <h2>@ViewBag.Title</h2>
+                    </header>
+                    <div>
+                        <div class="row">
+                            <div class="6u">
+                                <section class="box">
+                                    @*<a href="#" class="image image-full">
+
+            </a>*@
+                                    <header>
+                                        <h3>填寫訂房資料</h3>
+                                        @*<span class="byline">Posted 45 minutes ago</span>*@
+                                    </header>
+                                    @using (Html.BeginForm("Reservation", "Rooms", FormMethod.Post))
+                                    {
+                                        <div class="">
+                                            @Html.AntiForgeryToken()
+                                            @*@Html.ValidationSummary()*@
+                                            @*@Html.ValidationMessage("Message")*@
+
+                                            @if (!string.IsNullOrEmpty(this.ViewBag.Message))
+                                            {
+                                                <span class="field-validation-error text-danger">
+                                                    @this.ViewBag.Message.ToString()
+                                                </span>
+                                            }
+
+                                            <div class="form-group">
+                                                <label>入住日期</label>
+                                                @*<input id="checkin-date" type="date" name="checkin-date" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.OrderDateForm, "{0:yyyy-MM-dd}", new { @type = "date" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.OrderDateForm, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>退房日期</label>
+                                                @*<input id="checkout-date" type="date" name="checkout-date" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.OrderDateTo, "{0:yyyy-MM-dd}", new { @type = "date" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.OrderDateTo, "", new { @class = "text-danger" })
+                                                共
+                                                <span class="live-num">0</span> 晚
+                                            </div>
+                                            <div class="form-group">
+                                                <label>房型</label>
+                                                @Html.DropDownListFor(model => model.RoomBookingOrder.RoomId,
+                                                    Model.TbRoomsList.Take(6).Select(s => new SelectListItem() { Text = s.Name, Value = s.ID.ToString() }))
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.RoomId, "", new { @class = "text-danger" })
+                                                @Html.HiddenFor(model => model.RoomBookingOrder.RoomNum)
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>大人人數</label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.AdultNum, new { @type = "number" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.AdultNum, "", new { @class = "text-danger" })
+                                                位
+                                            </div>
+                                            <div class="form-group">
+                                                <label>小孩人數</label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.ChildNum, new { @type = "number" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.ChildNum, "", new { @class = "text-danger" })
+                                                位
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>
+                                                    是否加床
+                                                </label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.CheckBoxFor(model => model.RoomBookingOrder.IsExtraBed)
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.IsExtraBed, "", new { @class = "text-danger" })
+                       
+                                            </div>
+                                            
+                                            <div class="form-group">
+                       
+                                                <label>
+                                                    加床數
+                                                </label>
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.ExtraBadNum, new { @type = "number" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.ExtraBadNum, "", new { @class = "text-danger" })
+                                                位
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>訂房人姓名</label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.CustomeName, new { })
+
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.CustomeName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>訂房人Email</label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.CustomeEmail, new { @type = "email" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.CustomeEmail, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>訂房人電話</label>
+                                                @*<input type="number" name="rooms" />*@
+                                                @Html.TextBoxFor(model => model.RoomBookingOrder.CustomeTel, new { @type = "tel" })
+                                                @Html.ValidationMessageFor(model => model.RoomBookingOrder.CustomeTel, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>驗證碼</label>
+                                                <img src="@Url.Action("VerificationCode", "Rooms")" alt="驗證碼" />
+                                                @Html.TextBox("InputCode", null, new { placeholder = "請輸入驗證碼", style = "width: 100px" })
+                                            </div>
+                                            @*<div class="btn-wrap">
+                        <button type="submit" class="button">立即訂房</button>
+                        <button type="submit" class="button alt">查詢空房</button>
+                    </div>*@
+                                        </div>
+                                        <footer class="actions">
+                                            <button type="submit" class="button">立即訂房</button>
+                                            @*<button type="reset" class="button alt">清空</button>*@
+                                        </footer>
+                                    }
+                                </section>
+
+
+                            </div>
+                            <div class="6u">
+                                <section class="box">
+                                    @*<a href="#" class="image image-full">
+
+                                        </a>*@
+                                    <header>
+                                        <h3>訂房日曆</h3>
+                                        @*<span class="byline">Posted 45 minutes ago</span>*@
+                                    </header>
+
+                                    <div id="calendar">
+                                    </div>
+
+                                    <script type='text/javascript'>
+                                        $(function () {
+                                            $("#calendar").fullCalendar({
+                                                header: {
+                                                    left: 'prev,next today',
+                                                    center: 'title',
+                                                    right: 'month'
+                                                },
+                                                defaultDate: '@DateTime.Now.ToString("yyyy-MM-dd")',
+                                                editable: false,
+                                                lang: 'zh-tw',
+                                                events: "/Rooms/GetDiaryEvents",
+                                                disableDragging: true,
+                                                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                                buttonText: {
+                                                    prev: "<span class='fc-text-arrow'>&lsaquo;</span>",
+                                                    next: "<span class='fc-text-arrow'>&rsaquo;</span>",
+                                                    prevYear: "<span class='fc-text-arrow'>&laquo;</span>",
+                                                    nextYear: "<span class='fc-text-arrow'>&raquo;</span>",
+                                                    today: '今日',
+                                                    month: '月',
+                                                    week: '周',
+                                                    day: '日'
+                                                },
+                                                dayNamesShort: ['日', '一', '二', '三', '四', '五', '六']
+                                            });
+                                        });
+                                    </script>
+                                    @*<footer class="actions">
+                                            <a href="#" class="button fa fa-file-text">Continue Reading</a>
+                                            <a href="#" class="button alt fa fa-comment">33 comments</a>
+                                        </footer>*@
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="12u">
+
+                <!-- Intro -->
+                @*<section id="intro">
+
+                        <div>
+                            <div class="row">
+                                <div class="4u">
+                                    <section class="first">
+                                        <span class="pennant"><span class="fa fa-cog"></span></span>
+                                        <header>
+                                            <h2>Ipsum consequat</h2>
+                                        </header>
+                                        <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                    </section>
+                                </div>
+                                <div class="4u">
+                                    <section class="middle">
+                                        <span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
+                                        <header>
+                                            <h2>Magna etiam dolor</h2>
+                                        </header>
+                                        <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                    </section>
+                                </div>
+                                <div class="4u">
+                                    <section class="last">
+                                        <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
+                                        <header>
+                                            <h2>Tempus adipiscing</h2>
+                                        </header>
+                                        <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <a href="#" class="button big">Get Started</a>
+                            <a href="#" class="button alt big">Learn More</a>
+                        </div>
+
+                    </section>
+                *@
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Style
+{
+    @*<link href="http://arshaw.com/js/fullcalendar-2.1.1/lib/cupertino/jquery-ui.min.css" rel="stylesheet" />*@
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    @*<link href="~/Content/fullcalendar.print.css" rel="stylesheet" />*@
+    <link href="~/Scripts/colorbox-master/example1/colorbox.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script src="//momentjs.com/downloads/moment-with-locales.min.js"></script>
+    @*<script src="http://arshaw.com/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>*@
+    @*<script src="http://arshaw.com/js/fullcalendar-2.1.1/fullcalendar.min.js"></script>*@
+    @*<script src="~/Scripts/fullcalendar.min.js"></script>*@
+    <script src="~/Scripts/fullcalendar.js"></script>
+    @*<script src="http://arshaw.com/js/fullcalendar-2.1.1/lang-all.js"></script>*@
+    <script src="~/Scripts/gcal.js"></script>
+    <script src="~/Scripts/colorbox-master/jquery.colorbox-min.js"></script>
+    <script src="~/Scripts/colorbox-master/i18n/jquery.colorbox-zh-TW.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var checkinDate;
+            var checkoutDate;
+            var dateDiff = 0;
+ 
+            $("#RoomBookingOrder_OrderDateForm").change(function (e) {
+                if ($(this).val() != "" && !isNaN(Date.parse($(this).val())) && !isNaN(Date.parse($("#RoomBookingOrder_OrderDateTo").val()))) {
+                    checkinDate = new Date($(this).val());
+                    checkoutDate = new Date($("#RoomBookingOrder_OrderDateTo").val());
+                    dateDiff = checkinDate.dateDiff("d", checkoutDate);
+
+                    if (dateDiff < 0) {
+                        $(".live-num").html(0);
+                    } else {
+                        $(".live-num").html(dateDiff);
+                    }
+                } else {
+                    $(".live-num").html(0);
+                }
+            });
+            $("#RoomBookingOrder_OrderDateTo").change(function (e) {
+                if ($(this).val() != "" && !isNaN(Date.parse($(this).val())) && !isNaN(Date.parse($("#RoomBookingOrder_OrderDateForm").val()))) {
+                    checkinDate = new Date($("#RoomBookingOrder_OrderDateForm").val());
+                    checkoutDate = new Date($(this).val());
+                    dateDiff = checkinDate.dateDiff("d", checkoutDate);
+
+                    if (dateDiff < 0) {
+                        $(".live-num").html(0);
+                    } else {
+                        $(".live-num").html(dateDiff);
+                    }
+                } else {
+                    $(".live-num").html(0);
+                }
+            });
+            Date.prototype.dateDiff = function (interval, objDate) {
+                //若參數不足或 objDate 不是日期物件則回傳 undefined
+                if (arguments.length < 2 || objDate.constructor != Date) return undefined;
+                switch (interval) {
+                    case "s":
+                        //計算秒差
+                        return parseInt((objDate - this) / 1000);
+                    case "n":
+                        //計算分差
+                        return parseInt((objDate - this) / 60000);
+                    case "h":
+                        //計算時差
+                        return parseInt((objDate - this) / 3600000);
+                    case "d":
+                        //計算日差
+                        return parseInt((objDate - this) / 86400000);
+                    case "w":
+                        //計算週差
+                        return parseInt((objDate - this) / (86400000 * 7));
+                    case "m":
+                        //計算月差
+                        return (objDate.getMonth() + 1) + ((objDate.getFullYear() - this.getFullYear()) * 12) - (this.getMonth() + 1);
+                    case "y":
+                        //計算年差
+                        return objDate.getFullYear() - this.getFullYear();
+                    default:
+                        //輸入有誤
+                        return undefined;
+                }
+            };
+
+            $("#RoomBookingOrder_OrderDateForm").trigger("change");
+            $("#RoomBookingOrder_OrderDateTo").trigger("change");
+        });
+    </script>
+}

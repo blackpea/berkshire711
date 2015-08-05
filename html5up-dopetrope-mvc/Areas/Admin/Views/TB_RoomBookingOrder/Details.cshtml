@@ -1,0 +1,139 @@
+﻿@model html5up_dopetrope_mvc.Models.TB_RoomBookingOrder
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_RoomBookingOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDateForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDateForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDateTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDateTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdultNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdultNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomeEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomeEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomeSex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomeSex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomeTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomeTel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsComplete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TB_Room.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TB_Room.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

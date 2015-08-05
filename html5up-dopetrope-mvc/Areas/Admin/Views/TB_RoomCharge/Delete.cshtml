@@ -1,0 +1,177 @@
+﻿@model html5up_dopetrope_mvc.Models.TB_RoomCharge
+
+@{
+    ViewBag.Title = "房型金額資料維護-刪除";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="main-wrapper">
+    <div class="container">
+
+        <h2>Delete</h2>
+
+        <h3>您確定要刪除嗎？</h3>
+        <div>
+            <h4>@ViewBag.Title</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDateTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDateTime)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsDelete)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsDelete)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LowSeasonHoliday)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LowSeasonHoliday)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LowSeasonWeekday)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LowSeasonWeekday)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HighSeasonHoliday)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HighSeasonHoliday)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HighSeasonWeekday)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HighSeasonWeekday)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TB_Room.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TB_Room.Name)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+
+                    <input type="submit" value="送出" class="btn btn-success" />
+                    <div class="btn btn-danger">
+                        @Html.ActionLink("回上一頁", "Index")
+                    </div>
+                </div>
+            }
+        </div>
+        @model IEnumerable<html5up_dopetrope_mvc.Models.TB_RoomCharge>
+
+        @{
+            ViewBag.Title = "Index";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+        <div id="main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <h2>Index</h2>
+
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreateDateTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsDelete)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LowSeasonHoliday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LowSeasonWeekday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HighSeasonHoliday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HighSeasonWeekday)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TB_Room.Name)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsDelete)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LowSeasonHoliday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LowSeasonWeekday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HighSeasonHoliday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HighSeasonWeekday)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TB_Room.Name)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Style
+{
+    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script>
+    </script>
+}

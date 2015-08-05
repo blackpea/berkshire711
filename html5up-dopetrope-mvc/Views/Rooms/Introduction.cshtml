@@ -1,0 +1,126 @@
+﻿@using html5up_dopetrope_mvc
+@model html5up_dopetrope_mvc.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "房型介紹";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="12u">
+                <section>
+                    <header class="major">
+                        <h2>@ViewBag.Title</h2>
+                    </header>
+                    <div>
+       
+                        <section >
+                            @{
+                                var roomlist = Model.TbRoomsList.ToList();
+                            }
+                            <div class='row'>
+                                @for (int iroom = 0; iroom < 3; iroom++)
+                                {
+                                    <div class="4u">
+                                        <section class="box">
+                                            <a href="#" class="image image-full">
+
+                                                @{
+                                    var targetDirectory = Server.MapPath(@"~/UploadFiles/TB_Room/" + roomlist[iroom].ID + "/");
+                                    var images = Html.GetImgTagsByRoomId(@"~/UploadFiles/TB_Room/" + roomlist[iroom].ID + "/", targetDirectory);
+
+                                    @images.ToList()[0] 
+
+                                                }
+                                            </a>
+                                            <header>
+                                                <h3>@roomlist[iroom].Name</h3>
+                                            </header>
+                                            <p>@roomlist[iroom].Features</p>
+                                            <footer>
+                                                <a href="@Url.Action("Details", "Rooms", new { tbRoomId = roomlist[iroom].ID})" class="button alt">看更多</a>
+                                            </footer>
+                                        </section>
+                                    </div>
+                                }
+                            </div>
+                            <div class='row'>
+                                @for (int iroom = 3; iroom < 6; iroom++)
+                                {
+                                    <div class="4u">
+                                        <section class="box">
+                                            <a href="#" class="image image-full">
+                                                @{
+                                    var targetDirectory = Server.MapPath(@"~/UploadFiles/TB_Room/" + roomlist[iroom].ID + "/");
+                                    var images = Html.GetImgTagsByRoomId(@"~/UploadFiles/TB_Room/" + roomlist[iroom].ID + "/", targetDirectory);
+
+                                    @images.ToList()[0] 
+
+                                                }
+                                            </a>
+                                            <header>
+                                                <h3>@roomlist[iroom].Name</h3>
+                                            </header>
+                                            <p>@roomlist[iroom].Features</p>
+                                            <footer>
+                                                <a href="@Url.Action("Details", "Rooms", new { tbRoomId = roomlist[iroom].ID})" class="button alt">看更多</a>
+                                            </footer>
+                                        </section>
+                                    </div>
+                                }
+                            </div>
+
+                        </section>
+                        <!-- Intro -->
+                        @*<section id="intro">
+
+                                <div>
+                                    <div class="row">
+                                        <div class="4u">
+                                            <section class="first">
+                                                <span class="pennant"><span class="fa fa-cog"></span></span>
+                                                <header>
+                                                    <h2>Ipsum consequat</h2>
+                                                </header>
+                                                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                            </section>
+                                        </div>
+                                        <div class="4u">
+                                            <section class="middle">
+                                                <span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
+                                                <header>
+                                                    <h2>Magna etiam dolor</h2>
+                                                </header>
+                                                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                            </section>
+                                        </div>
+                                        <div class="4u">
+                                            <section class="last">
+                                                <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
+                                                <header>
+                                                    <h2>Tempus adipiscing</h2>
+                                                </header>
+                                                <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="actions">
+                                    <a href="#" class="button big">Get Started</a>
+                                    <a href="#" class="button alt big">Learn More</a>
+                                </div>
+
+                            </section>
+                        *@
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+

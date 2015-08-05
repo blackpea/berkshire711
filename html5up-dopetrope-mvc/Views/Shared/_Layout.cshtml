@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>波克夏民宿．澎湖七美渡假的好住所．觀光導遊．海灘渡假村</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="波克夏民宿．澎湖七美渡假的好住所．觀光導遊．海灘渡假村" />
+    <meta name="keywords" content="波克夏民宿．澎湖七美渡假的好住所．觀光導遊．海灘渡假村" />
+    <meta property="fb:admins" content="100006028578381" />
+    <meta property="fb:app_id" content="712605928816842">
+    <meta property="og:title"
+          content="波克夏民宿．澎湖七美渡假的好住所．觀光導遊．海灘渡假村" />
+    <meta property="og:site_name" content="波克夏民宿" />
+    <meta property="og:url"
+          content="http://berkshire711.com/" />
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.11.0.min.js"></script>
+    <script src="/Scripts/jquery.dropotron.min.js"></script>
+    <script src="/Scripts/config.js"></script>
+    <script src="/Scripts/skel.min.js"></script>
+    <script src="/Scripts/skel-panels.min.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="/Content/skel-noscript.css" />
+        <link rel="stylesheet" href="/Content/style.css" />
+        <link rel="stylesheet" href="/Content/style-desktop.css" />
+    </noscript>
+    <!--[if lte IE 8]><script src="/Scripts/html5shiv.js"></script><link rel="stylesheet" href="/Content/ie8.css" /><![endif]-->
+    <script src="/Scripts/html5shiv.js"></script>
+
+    <style type="text/css">
+        .field-validation-error {
+            color: #f00;
+        }
+
+        .validation-summary-errors {
+            color: #f00;
+            font-weight: bold;
+        }
+
+        .input-validation-error {
+            border: 2px solid #f00;
+            background-color: #fee;
+        }
+
+        input[type="checkbox"].input-validation-error {
+            outline: 2px solid #f00;
+        }
+
+        pre {
+            /*width:640px;*/
+            white-space: pre-wrap; /* css-3 */
+            white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+            white-space: -pre-wrap; /* Opera 4-6 */
+            white-space: -o-pre-wrap; /* Opera 7 */
+            -ms-word-wrap: break-word;
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+        }
+
+        iframe, object, embed {
+            max-width: 100%;
+        }
+
+        .fb-like-box, object, embed {
+            max-width: 100%;
+        }
+
+        .fb-post, object, embed {
+            max-width: 100%;
+        }
+
+        .fb-comments, .fb-comments, iframe[style] {
+            width: 100% !important;
+        }
+
+        .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+            width: 100% !important;
+        }
+
+        .fc-event-time {
+            display: none;
+        }
+    </style>
+    @RenderSection("Style", required: false)
+</head>
+<body class="@ViewBag.BodyCssClassName">
+
+    <!-- Header Wrapper -->
+    <div id="header-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="12u">
+                    @Html.Partial("_Header")
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    @Html.Partial("_Footer")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

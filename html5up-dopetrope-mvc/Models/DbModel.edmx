@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BedAndBreakfastModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TB_Carousel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageData" Type="image" Nullable="false" />
+          <Property Name="DateUploaded" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="PhotoMimeType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhotoName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SquareFootage" Type="float" Nullable="false" />
+          <Property Name="MaxCapacity" Type="int" Nullable="false" />
+          <Property Name="Facility" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Features" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="ImgUrl1" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImgUrl2" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImgUrl3" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImgUrl4" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImgUrl5" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExtraBed" Type="int" Nullable="false" />
+          <Property Name="Color" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_RoomBookingOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDateForm" Type="datetime" Nullable="false" />
+          <Property Name="OrderDateTo" Type="datetime" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="RoomNum" Type="int" Nullable="false" />
+          <Property Name="AdultNum" Type="int" Nullable="false" />
+          <Property Name="ChildNum" Type="int" Nullable="false" />
+          <Property Name="CustomeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomeEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CustomeSex" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomeTel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TotalAmount" Type="int" Nullable="false" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsComplete" Type="bit" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="IsExtraBed" Type="bit" Nullable="false" />
+          <Property Name="ExtraBadNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_RoomCharge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="LowSeasonHoliday" Type="int" Nullable="false" />
+          <Property Name="LowSeasonWeekday" Type="int" Nullable="false" />
+          <Property Name="HighSeasonHoliday" Type="int" Nullable="false" />
+          <Property Name="HighSeasonWeekday" Type="int" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="ExtraBedCharge" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_RoomBookingOrder_TB_Room">
+          <End Role="TB_Room" Type="Self.TB_Room" Multiplicity="1" />
+          <End Role="TB_RoomBookingOrder" Type="Self.TB_RoomBookingOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_RoomBookingOrder">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_RoomCharge_TB_Room">
+          <End Role="TB_Room" Type="Self.TB_Room" Multiplicity="1" />
+          <End Role="TB_RoomCharge" Type="Self.TB_RoomCharge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_RoomCharge">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BedAndBreakfastModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Carousel" EntityType="Self.TB_Carousel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_News" EntityType="Self.TB_News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Room" EntityType="Self.TB_Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_RoomBookingOrder" EntityType="Self.TB_RoomBookingOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_RoomCharge" EntityType="Self.TB_RoomCharge" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_RoomBookingOrder_TB_Room" Association="Self.FK_TB_RoomBookingOrder_TB_Room">
+            <End Role="TB_Room" EntitySet="TB_Room" />
+            <End Role="TB_RoomBookingOrder" EntitySet="TB_RoomBookingOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_RoomCharge_TB_Room" Association="Self.FK_TB_RoomCharge_TB_Room">
+            <End Role="TB_Room" EntitySet="TB_Room" />
+            <End Role="TB_RoomCharge" EntitySet="TB_RoomCharge" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BedAndBreakfastModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="BedAndBreakfastEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="AspNetRoles" EntityType="BedAndBreakfastModel.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="BedAndBreakfastModel.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="BedAndBreakfastModel.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="BedAndBreakfastModel.AspNetUsers" />
+          <EntitySet Name="TB_News" EntityType="BedAndBreakfastModel.TB_News" />
+          <EntitySet Name="TB_Room" EntityType="BedAndBreakfastModel.TB_Room" />
+          <EntitySet Name="TB_RoomBookingOrder" EntityType="BedAndBreakfastModel.TB_RoomBookingOrder" />
+          <EntitySet Name="TB_RoomCharge" EntityType="BedAndBreakfastModel.TB_RoomCharge" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="BedAndBreakfastModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="BedAndBreakfastModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_RoomBookingOrder_TB_Room" Association="BedAndBreakfastModel.FK_TB_RoomBookingOrder_TB_Room">
+            <End Role="TB_Room" EntitySet="TB_Room" />
+            <End Role="TB_RoomBookingOrder" EntitySet="TB_RoomBookingOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_RoomCharge_TB_Room" Association="BedAndBreakfastModel.FK_TB_RoomCharge_TB_Room">
+            <End Role="TB_Room" EntitySet="TB_Room" />
+            <End Role="TB_RoomCharge" EntitySet="TB_RoomCharge" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="BedAndBreakfastModel.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="TB_Carousel" EntityType="BedAndBreakfastModel.TB_Carousel" />
+        </EntityContainer>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="BedAndBreakfastModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="BedAndBreakfastModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="BedAndBreakfastModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="BedAndBreakfastModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="BedAndBreakfastModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="BedAndBreakfastModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="TB_News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Room">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SquareFootage" Type="Double" Nullable="false" />
+          <Property Name="MaxCapacity" Type="Int32" Nullable="false" />
+          <Property Name="Facility" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Features" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="ImgUrl1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraBed" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TB_RoomBookingOrder" Relationship="BedAndBreakfastModel.FK_TB_RoomBookingOrder_TB_Room" FromRole="TB_Room" ToRole="TB_RoomBookingOrder" />
+          <NavigationProperty Name="TB_RoomCharge" Relationship="BedAndBreakfastModel.FK_TB_RoomCharge_TB_Room" FromRole="TB_Room" ToRole="TB_RoomCharge" />
+        </EntityType>
+        <EntityType Name="TB_RoomBookingOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDateForm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderDateTo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RoomNum" Type="Int32" Nullable="false" />
+          <Property Name="AdultNum" Type="Int32" Nullable="false" />
+          <Property Name="ChildNum" Type="Int32" Nullable="false" />
+          <Property Name="CustomeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomeEmail" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomeSex" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomeTel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+          <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsComplete" Type="Boolean" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="IsExtraBed" Type="Boolean" Nullable="false" />
+          <Property Name="ExtraBadNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Room" Relationship="BedAndBreakfastModel.FK_TB_RoomBookingOrder_TB_Room" FromRole="TB_RoomBookingOrder" ToRole="TB_Room" />
+        </EntityType>
+        <EntityType Name="TB_RoomCharge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="LowSeasonHoliday" Type="Int32" Nullable="false" />
+          <Property Name="LowSeasonWeekday" Type="Int32" Nullable="false" />
+          <Property Name="HighSeasonHoliday" Type="Int32" Nullable="false" />
+          <Property Name="HighSeasonWeekday" Type="Int32" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="ExtraBedCharge" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Room" Relationship="BedAndBreakfastModel.FK_TB_RoomCharge_TB_Room" FromRole="TB_RoomCharge" ToRole="TB_Room" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="BedAndBreakfastModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BedAndBreakfastModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="BedAndBreakfastModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BedAndBreakfastModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_RoomBookingOrder_TB_Room">
+          <End Type="BedAndBreakfastModel.TB_Room" Role="TB_Room" Multiplicity="1" />
+          <End Type="BedAndBreakfastModel.TB_RoomBookingOrder" Role="TB_RoomBookingOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_RoomBookingOrder">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_RoomCharge_TB_Room">
+          <End Type="BedAndBreakfastModel.TB_Room" Role="TB_Room" Multiplicity="1" />
+          <End Type="BedAndBreakfastModel.TB_RoomCharge" Role="TB_RoomCharge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TB_RoomCharge">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="BedAndBreakfastModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+          <End Type="BedAndBreakfastModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TB_Carousel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageData" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateUploaded" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="PhotoMimeType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BedAndBreakfastModelStoreContainer" CdmEntityContainer="BedAndBreakfastEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_News">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.TB_News">
+              <MappingFragment StoreEntitySet="TB_News">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostDateTime" ColumnName="PostDateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Room">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.TB_Room">
+              <MappingFragment StoreEntitySet="TB_Room">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ExtraBed" ColumnName="ExtraBed" />
+                <ScalarProperty Name="ImgUrl5" ColumnName="ImgUrl5" />
+                <ScalarProperty Name="ImgUrl4" ColumnName="ImgUrl4" />
+                <ScalarProperty Name="ImgUrl3" ColumnName="ImgUrl3" />
+                <ScalarProperty Name="ImgUrl2" ColumnName="ImgUrl2" />
+                <ScalarProperty Name="ImgUrl1" ColumnName="ImgUrl1" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Facility" ColumnName="Facility" />
+                <ScalarProperty Name="MaxCapacity" ColumnName="MaxCapacity" />
+                <ScalarProperty Name="SquareFootage" ColumnName="SquareFootage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_RoomBookingOrder">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.TB_RoomBookingOrder">
+              <MappingFragment StoreEntitySet="TB_RoomBookingOrder">
+                <ScalarProperty Name="ExtraBadNum" ColumnName="ExtraBadNum" />
+                <ScalarProperty Name="IsExtraBed" ColumnName="IsExtraBed" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="CustomeTel" ColumnName="CustomeTel" />
+                <ScalarProperty Name="CustomeSex" ColumnName="CustomeSex" />
+                <ScalarProperty Name="CustomeEmail" ColumnName="CustomeEmail" />
+                <ScalarProperty Name="CustomeName" ColumnName="CustomeName" />
+                <ScalarProperty Name="ChildNum" ColumnName="ChildNum" />
+                <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+                <ScalarProperty Name="RoomNum" ColumnName="RoomNum" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="OrderDateTo" ColumnName="OrderDateTo" />
+                <ScalarProperty Name="OrderDateForm" ColumnName="OrderDateForm" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_RoomCharge">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.TB_RoomCharge">
+              <MappingFragment StoreEntitySet="TB_RoomCharge">
+                <ScalarProperty Name="ExtraBedCharge" ColumnName="ExtraBedCharge" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="HighSeasonWeekday" ColumnName="HighSeasonWeekday" />
+                <ScalarProperty Name="HighSeasonHoliday" ColumnName="HighSeasonHoliday" />
+                <ScalarProperty Name="LowSeasonWeekday" ColumnName="LowSeasonWeekday" />
+                <ScalarProperty Name="LowSeasonHoliday" ColumnName="LowSeasonHoliday" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="BedAndBreakfastModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="TB_Carousel">
+            <EntityTypeMapping TypeName="BedAndBreakfastModel.TB_Carousel">
+              <MappingFragment StoreEntitySet="TB_Carousel">
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="PhotoMimeType" ColumnName="PhotoMimeType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+                <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="false" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>

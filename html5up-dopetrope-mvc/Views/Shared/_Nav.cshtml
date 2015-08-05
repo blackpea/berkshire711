@@ -1,0 +1,59 @@
+﻿<!-- Nav -->
+
+<nav id="nav">
+    <ul>
+        <li @*class="current_page_item"*@><a href="@Url.Action("Index", "AboutUs", new { area = string.Empty }, null)">關於波克夏</a></li>
+        <li class=""><a href="@Url.Action("Index", "News", new { area = string.Empty }, null)">最新消息</a></li>
+        <li class=""><a href="@Url.Action("Introduction", "Rooms", new { area = string.Empty }, null)">房型介紹</a></li>
+        <li class=""><a href="@Url.Action("Index", "NeedToKnow", new { area = string.Empty }, null)">住宿須知</a></li>
+        <li class=""><a href="@Url.Action("Booking", "Rooms", new { area = string.Empty }, null)">線上訂房</a></li>
+        <li class=""><a href="@Url.Action("Index", "RelatedLinks", new { area = string.Empty }, null)">相關連結</a></li>
+        <li class=""><a href="@Url.Action("Index", "TrafficInfo", new { area = string.Empty }, null)">交通資訊</a></li>
+        <li class=""><a href="@Url.Action("Index", "ContactUs", new { area = string.Empty }, null)">聯絡我們</a></li>
+        @if (Request.IsAuthenticated)
+        {
+            <li>
+                <a href="#">
+                    @*@User.Identity.Name 您好!*@
+                    後端管理
+                </a>
+                <ul>
+                    <li class=""><a href="@Url.Action("Index", "Carousel", new { area = "Admin" }, null)">首頁圖片資料維護</a></li>
+                    <li class=""><a href="@Url.Action("Index", "TB_News", new { area = "Admin" }, null)">最新消息資料維護</a></li>
+                    <li class=""><a href="@Url.Action("Index", "TB_RoomBookingOrder", new { area = "Admin" }, null)">訂房資料管理</a></li>
+                    <li class=""><a href="@Url.Action("Index", "TB_Room", new { area = "Admin" }, null)">房型資料維護</a></li>
+                    <li class=""><a href="@Url.Action("Index", "TB_RoomCharge", new { area = "Admin" }, null)">房型金額資料維護</a></li>
+                    <li class="">
+                        <a href="@Url.Action("Logoff", "Account", new { area = string.Empty }, null)">登出</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"></a>
+            </li>
+        }
+    </ul>
+    @*<ul>
+            <li class="@(Request.RawUrl == "/" ? "current_page_item" : string.Empty)"><a href="/">Home</a></li>
+            <li>
+                <a href="">Dropdown</a>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Magna phasellus</a></li>
+                    <li><a href="#">Etiam dolore nisl</a></li>
+                    <li>
+                        <a href="">Phasellus consequat</a>
+                        <ul>
+                            <li><a href="#">Magna phasellus</a></li>
+                            <li><a href="#">Etiam dolore nisl</a></li>
+                            <li><a href="#">Veroeros feugiat</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Veroeros feugiat</a></li>
+                </ul>
+            </li>
+            <li class="@(Request.RawUrl == "/Home/RightSidebar" ? "current_page_item" : string.Empty)"><a href="/Home/RightSidebar">Right Sidebar</a></li>
+            <li class="@(Request.RawUrl == "/Home/LeftSidebar" ? "current_page_item" : string.Empty)"><a href="/Home/LeftSidebar">Left Sidebar</a></li>
+            <li class="@(Request.RawUrl == "/Home/NoSidebar" ? "current_page_item" : string.Empty)"><a href="/Home/NoSidebar">No Sidebar</a></li>
+        </ul>*@
+</nav>

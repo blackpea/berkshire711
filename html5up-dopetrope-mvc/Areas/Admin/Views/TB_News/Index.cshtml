@@ -1,0 +1,80 @@
+﻿ 
+@using PagedList.Mvc
+@model PagedList.IPagedList<html5up_dopetrope_mvc.Models.TB_News>
+
+@{
+    ViewBag.Title = "最新消息資料維護";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main-wrapper">
+    <div class="container">
+   
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@ViewBag.Title</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().PostDateTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+                            </th>
+                     
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PostDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                      
+                                <td>
+                                    @Html.ActionLink("編輯", "Edit", new { id = item.ID }) |
+                         
+                                    @Html.ActionLink("刪除", "Delete", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <form action="@Url.Action("Create", "TB_News", new { @class = "", area = "Admin" })" method="GET">
+                            <button type="submit" class="btn btn-default">新增</button>
+                        </form>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="panel-footer">
+                @Html.PagedListPager(Model, page => Url.Action("Index", "TB_News", new { page = page, area = "Admin" }))
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@section Style
+{
+    <link href="~/Content/bootstrap.spacelab.min.css" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script>
+    </script>
+}
